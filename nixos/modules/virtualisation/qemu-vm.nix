@@ -372,15 +372,15 @@ in
             '';
       };
 
-    virtualisation.resolution =
-      mkOption {
-        type = options.services.xserver.resolutions.type.nestedTypes.elemType;
-        default = { x = 1024; y = 768; };
-        description =
-          ''
-            The resolution of the virtual machine display.
-          '';
-      };
+    #virtualisation.resolution =
+    #  mkOption {
+    #    type = options.services.xserver.resolutions.type.nestedTypes.elemType;
+    #    default = { x = 1024; y = 768; };
+    #    description =
+    #      ''
+    #        The resolution of the virtual machine display.
+    #      '';
+    #  };
 
     virtualisation.cores =
       mkOption {
@@ -743,7 +743,7 @@ in
         then driveDeviceName 2 # second disk
         else cfg.bootDevice
     );
-    boot.loader.grub.gfxmodeBios = with cfg.resolution; "${toString x}x${toString y}";
+    boot.loader.grub.gfxmodeBios = "1024x768";
 
     boot.initrd.extraUtilsCommands =
       ''
@@ -787,12 +787,12 @@ in
     # allow `system.build.toplevel' to be included.  (If we had a direct
     # reference to ${regInfo} here, then we would get a cyclic
     # dependency.)
-    boot.postBootCommands =
-      ''
-        if [[ "$(cat /proc/cmdline)" =~ regInfo=([^ ]*) ]]; then
-          ${config.nix.package.out}/bin/nix-store --load-db < ''${BASH_REMATCH[1]}
-        fi
-      '';
+    #boot.postBootCommands =
+    #  ''
+    #    if [[ "$(cat /proc/cmdline)" =~ regInfo=([^ ]*) ]]; then
+    #      ${config.nix.package.out}/bin/nix-store --load-db < ''${BASH_REMATCH[1]}
+    #    fi
+    #  '';
 
     boot.initrd.availableKernelModules =
       optional cfg.writableStore "overlay"
@@ -942,7 +942,7 @@ in
       } // lib.mapAttrs' mkSharedDir cfg.sharedDirectories);
 
     swapDevices = mkVMOverride [ ];
-    boot.initrd.luks.devices = mkVMOverride {};
+    # boot.initrd.luks.devices = mkVMOverride {};
 
     # Don't run ntpd in the guest.  It should get the correct time from KVM.
     services.timesyncd.enable = false;
@@ -958,15 +958,15 @@ in
 
     # When building a regular system configuration, override whatever
     # video driver the host uses.
-    services.xserver.videoDrivers = mkVMOverride [ "modesetting" ];
-    services.xserver.defaultDepth = mkVMOverride 0;
-    services.xserver.resolutions = mkVMOverride [ cfg.resolution ];
-    services.xserver.monitorSection =
-      ''
-        # Set a higher refresh rate so that resolutions > 800x600 work.
-        HorizSync 30-140
-        VertRefresh 50-160
-      '';
+    #services.xserver.videoDrivers = mkVMOverride [ "modesetting" ];
+    #services.xserver.defaultDepth = mkVMOverride 0;
+    #services.xserver.resolutions = mkVMOverride [ cfg.resolution ];
+    #services.xserver.monitorSection =
+    #  ''
+    #    # Set a higher refresh rate so that resolutions > 800x600 work.
+    #    HorizSync 30-140
+    #    VertRefresh 50-160
+    #  '';
 
     # Wireless won't work in the VM.
     networking.wireless.enable = mkVMOverride false;

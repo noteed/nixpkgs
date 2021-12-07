@@ -631,7 +631,7 @@ in
 
     users.users = nixbldUsers;
 
-    services.xserver.displayManager.hiddenUsers = attrNames nixbldUsers;
+    # services.xserver.displayManager.hiddenUsers = attrNames nixbldUsers;
 
     system.activationScripts.nix = stringAfter [ "etc" "users" ]
       ''

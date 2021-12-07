@@ -190,6 +190,7 @@
   ./programs/spacefm.nix
   ./programs/singularity.nix
   ./programs/ssh.nix
+  ./programs/ssh-with-x.nix  # New
   ./programs/ssmtp.nix
   ./programs/sysdig.nix
   ./programs/systemtap.nix

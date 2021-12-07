@@ -54,14 +54,6 @@ in
         '';
       };
 
-      setXAuthLocation = mkOption {
-        type = types.bool;
-        description = ''
-          Whether to set the path to <command>xauth</command> for X11-forwarded connections.
-          This causes a dependency on X11 packages.
-        '';
-      };
-
       pubkeyAcceptedKeyTypes = mkOption {
         type = types.listOf types.str;
         default = [];
@@ -228,13 +220,10 @@ in
 
   config = {
 
-    programs.ssh.setXAuthLocation =
-      mkDefault (config.services.xserver.enable || config.programs.ssh.forwardX11 || config.services.openssh.forwardX11);
-
     assertions =
-      [ { assertion = cfg.forwardX11 -> cfg.setXAuthLocation;
-          message = "cannot enable X11 forwarding without setting XAuth location";
-        }
+      [ #{ assertion = cfg.forwardX11 -> cfg.setXAuthLocation;
+        #  message = "cannot enable X11 forwarding without setting XAuth location";
+        #}
       ] ++ flip mapAttrsToList cfg.knownHosts (name: data: {
         assertion = (data.publicKey == null && data.publicKeyFile != null) ||
                     (data.publicKey != null && data.publicKeyFile == null);
@@ -251,10 +240,6 @@ in
         # Generated options from other settings
         Host *
         AddressFamily ${if config.networking.enableIPv6 then "any" else "inet"}
-
-        ${optionalString cfg.setXAuthLocation ''
-          XAuthLocation ${pkgs.xorg.xauth}/bin/xauth
-        ''}
 
         ForwardX11 ${if cfg.forwardX11 then "yes" else "no"}
 
@@ -298,7 +283,7 @@ in
         fi
       '';
 
-    environment.variables.SSH_ASKPASS = optionalString config.services.xserver.enable askPassword;
+    environment.variables.SSH_ASKPASS = ""; # optionalString config.services.xserver.enable askPassword;
 
   };
 }

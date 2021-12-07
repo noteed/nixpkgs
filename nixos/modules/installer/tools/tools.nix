@@ -36,7 +36,7 @@ let
     path = lib.optionals (lib.elem "btrfs" config.boot.supportedFilesystems) [ pkgs.btrfs-progs ];
     perl = "${pkgs.perl.withPackages (p: [ p.FileSlurp ])}/bin/perl";
     inherit (config.system.nixos-generate-config) configuration desktopConfiguration;
-    xserverEnabled = config.services.xserver.enable;
+    # xserverEnabled = config.services.xserver.enable;
   };
 
   nixos-option =
