@@ -1,3 +1,4 @@
+(import ./module-list-edited.nix) ++
 [
   ./config/debug-info.nix
   ./config/fonts/fontconfig.nix
@@ -15,31 +16,16 @@
   ./config/xdg/sounds.nix
   ./config/gtk/gtk-icon-cache.nix
   ./config/gnu.nix
-  ./config/i18n.nix
   ./config/iproute2.nix
-  ./config/krb5/default.nix
-  ./config/ldap.nix
   ./config/locale.nix
   ./config/malloc.nix
-  ./config/networking.nix
   ./config/no-x-libs.nix
-  ./config/nsswitch.nix
-  ./config/power-management.nix
   ./config/pulseaudio.nix
   ./config/qt5.nix
-  ./config/resolvconf.nix
-  ./config/shells-environment.nix
-  ./config/swap.nix
-  ./config/sysctl.nix
-  ./config/system-environment.nix
-  ./config/system-path.nix
-  ./config/terminfo.nix
   ./config/unix-odbc-drivers.nix
-  ./config/users-groups.nix
   ./config/vte.nix
   ./config/zram.nix
   ./hardware/acpilight.nix
-  ./hardware/all-firmware.nix
   ./hardware/bladeRF.nix
   ./hardware/brillo.nix
   ./hardware/ckb-next.nix
@@ -47,7 +33,6 @@
   ./hardware/cpu/intel-microcode.nix
   ./hardware/corectrl.nix
   ./hardware/digitalbitbox.nix
-  ./hardware/device-tree.nix
   ./hardware/gkraken.nix
   ./hardware/flirc.nix
   ./hardware/i2c.nix
@@ -98,26 +83,16 @@
   ./i18n/input-method/uim.nix
   ./i18n/input-method/kime.nix
   ./installer/tools/tools.nix
-  ./misc/assertions.nix
   ./misc/crashdump.nix
   ./misc/documentation.nix
-  ./misc/extra-arguments.nix
-  ./misc/ids.nix
-  ./misc/lib.nix
-  ./misc/label.nix
   ./misc/locate.nix
-  ./misc/meta.nix
-  ./misc/nixpkgs.nix
   ./misc/passthru.nix
-  ./misc/version.nix
   ./misc/nixops-autoluks.nix
   ./programs/adb.nix
   ./programs/appgate-sdp.nix
   ./programs/atop.nix
   ./programs/autojump.nix
   ./programs/bandwhich.nix
-  ./programs/bash/bash.nix
-  ./programs/bash/bash-completion.nix
   ./programs/bash/ls-colors.nix
   ./programs/bash/undistract-me.nix
   ./programs/bash-my-aws.nix
@@ -186,10 +161,8 @@
   ./programs/sedutil.nix
   ./programs/seahorse.nix
   ./programs/slock.nix
-  ./programs/shadow.nix
   ./programs/spacefm.nix
   ./programs/singularity.nix
-  ./programs/ssh.nix
   ./programs/ssh-with-x.nix  # New
   ./programs/ssmtp.nix
   ./programs/sysdig.nix
@@ -224,7 +197,6 @@
   ./programs/zsh/zsh-syntax-highlighting.nix
   ./rename.nix
   ./security/acme.nix
-  ./security/apparmor.nix
   ./security/audit.nix
   ./security/auditd.nix
   ./security/ca.nix
@@ -234,15 +206,8 @@
   ./security/google_oslogin.nix
   ./security/lock-kernel-modules.nix
   ./security/misc.nix
-  ./security/oath.nix
-  ./security/pam.nix
-  ./security/pam_usb.nix
-  ./security/pam_mount.nix
-  ./security/polkit.nix
   ./security/rngd.nix
   ./security/rtkit.nix
-  ./security/wrappers/default.nix
-  ./security/sudo.nix
   ./security/doas.nix
   ./security/systemd-confinement.nix
   ./security/tpm2.nix
@@ -356,7 +321,6 @@
   ./services/desktops/pantheon/files.nix
   ./services/desktops/espanso.nix
   ./services/desktops/flatpak.nix
-  ./services/desktops/geoclue2.nix
   ./services/desktops/gsignond.nix
   ./services/desktops/gvfs.nix
   ./services/desktops/malcontent.nix
@@ -437,7 +401,6 @@
   ./services/hardware/throttled.nix
   ./services/hardware/trezord.nix
   ./services/hardware/triggerhappy.nix
-  ./services/hardware/udev.nix
   ./services/hardware/udisks2.nix
   ./services/hardware/upower.nix
   ./services/hardware/usbmuxd.nix
@@ -458,8 +421,6 @@
   ./services/logging/logrotate.nix
   ./services/logging/logstash.nix
   ./services/logging/promtail.nix
-  ./services/logging/rsyslogd.nix
-  ./services/logging/syslog-ng.nix
   ./services/logging/syslogd.nix
   ./services/logging/vector.nix
   ./services/mail/clamsmtp.nix
@@ -563,7 +524,6 @@
   ./services/misc/mx-puppet-discord.nix
   ./services/misc/n8n.nix
   ./services/misc/nitter.nix
-  ./services/misc/nix-daemon.nix
   ./services/misc/nix-gc.nix
   ./services/misc/nix-optimise.nix
   ./services/misc/nix-ssh-serve.nix
@@ -599,7 +559,6 @@
   ./services/misc/sourcehut
   ./services/misc/spice-vdagentd.nix
   ./services/misc/ssm-agent.nix
-  ./services/misc/sssd.nix
   ./services/misc/subsonic.nix
   ./services/misc/sundtek.nix
   ./services/misc/svnserve.nix
@@ -711,7 +670,6 @@
   ./services/networking/charybdis.nix
   ./services/networking/cjdns.nix
   ./services/networking/cntlm.nix
-  ./services/networking/connman.nix
   ./services/networking/consul.nix
   ./services/networking/coredns.nix
   ./services/networking/corerad.nix
@@ -719,7 +677,6 @@
   ./services/networking/croc.nix
   ./services/networking/dante.nix
   ./services/networking/ddclient.nix
-  ./services/networking/dhcpcd.nix
   ./services/networking/dhcpd.nix
   ./services/networking/dnscache.nix
   ./services/networking/dnscrypt-proxy2.nix
@@ -737,7 +694,6 @@
   ./services/networking/ferm.nix
   ./services/networking/firefox/sync-server.nix
   ./services/networking/fireqos.nix
-  ./services/networking/firewall.nix
   ./services/networking/flannel.nix
   ./services/networking/freenet.nix
   ./services/networking/freeradius.nix
@@ -768,7 +724,6 @@
   ./services/networking/iscsi/initiator.nix
   ./services/networking/iscsi/root-initiator.nix
   ./services/networking/iscsi/target.nix
-  ./services/networking/iwd.nix
   ./services/networking/jibri/default.nix
   ./services/networking/jicofo.nix
   ./services/networking/jitsi-videobridge.nix
@@ -792,10 +747,8 @@
   ./services/networking/monero.nix
   ./services/networking/morty.nix
   ./services/networking/miredo.nix
-  ./services/networking/mstpd.nix
   ./services/networking/mtprotoproxy.nix
   ./services/networking/mullvad-vpn.nix
-  ./services/networking/multipath.nix
   ./services/networking/murmur.nix
   ./services/networking/mxisd.nix
   ./services/networking/namecoind.nix
@@ -804,7 +757,6 @@
   ./services/networking/nats.nix
   ./services/networking/ndppd.nix
   ./services/networking/nebula.nix
-  ./services/networking/networkmanager.nix
   ./services/networking/nextdns.nix
   ./services/networking/nftables.nix
   ./services/networking/ngircd.nix
@@ -842,7 +794,6 @@
   ./services/networking/quassel.nix
   ./services/networking/quorum.nix
   ./services/networking/quicktun.nix
-  ./services/networking/racoon.nix
   ./services/networking/radicale.nix
   ./services/networking/radvd.nix
   ./services/networking/rdnssd.nix
@@ -872,7 +823,6 @@
   ./services/networking/squid.nix
   ./services/networking/sslh.nix
   ./services/networking/ssh/lshd.nix
-  ./services/networking/ssh/sshd.nix
   ./services/networking/strongswan.nix
   ./services/networking/strongswan-swanctl/module.nix
   ./services/networking/stunnel.nix
@@ -906,7 +856,6 @@
   ./services/networking/websockify.nix
   ./services/networking/wg-quick.nix
   ./services/networking/wireguard.nix
-  ./services/networking/wpa_supplicant.nix
   ./services/networking/xandikos.nix
   ./services/networking/xinetd.nix
   ./services/networking/xl2tpd.nix
@@ -931,7 +880,6 @@
   ./services/security/cfssl.nix
   ./services/security/clamav.nix
   ./services/security/fail2ban.nix
-  ./services/security/fprintd.nix
   ./services/security/fprot.nix
   ./services/security/haka.nix
   ./services/security/haveged.nix
@@ -957,11 +905,9 @@
   ./services/security/vaultwarden/default.nix
   ./services/security/yubikey-agent.nix
   ./services/system/cloud-init.nix
-  ./services/system/dbus.nix
   ./services/system/earlyoom.nix
   ./services/system/localtime.nix
   ./services/system/kerberos/default.nix
-  ./services/system/nscd.nix
   ./services/system/saslauthd.nix
   ./services/system/self-deploy.nix
   ./services/system/uptimed.nix
@@ -1110,44 +1056,28 @@
   ./services/x11/xbanish.nix
   ./services/x11/xfs.nix
   ./services/x11/xserver.nix
-  ./system/activation/activation-script.nix
-  ./system/activation/top-level.nix
   ./system/boot/binfmt.nix
   ./system/boot/emergency-mode.nix
   ./system/boot/grow-partition.nix
   ./system/boot/initrd-network.nix
   ./system/boot/initrd-ssh.nix
   ./system/boot/initrd-openvpn.nix
-  ./system/boot/kernel.nix
   ./system/boot/kexec.nix
-  ./system/boot/loader/efi.nix
   ./system/boot/loader/generations-dir/generations-dir.nix
   ./system/boot/loader/generic-extlinux-compatible
-  ./system/boot/loader/grub/grub.nix
   ./system/boot/loader/grub/ipxe.nix
   ./system/boot/loader/grub/memtest.nix
   ./system/boot/loader/init-script/init-script.nix
-  ./system/boot/loader/loader.nix
   ./system/boot/loader/raspberrypi/raspberrypi.nix
   ./system/boot/loader/systemd-boot/systemd-boot.nix
   ./system/boot/luksroot.nix
-  ./system/boot/modprobe.nix
-  ./system/boot/networkd.nix
   ./system/boot/plymouth.nix
-  ./system/boot/resolved.nix
   ./system/boot/shutdown.nix
-  ./system/boot/stage-1.nix
-  ./system/boot/stage-2.nix
-  ./system/boot/systemd.nix
   ./system/boot/systemd-nspawn.nix
-  ./system/boot/timesyncd.nix
-  ./system/boot/tmp.nix
-  ./system/etc/etc.nix
   ./tasks/auto-upgrade.nix
   ./tasks/bcache.nix
   ./tasks/cpu-freq.nix
   ./tasks/encrypted-devices.nix
-  ./tasks/filesystems.nix
   ./tasks/filesystems/bcachefs.nix
   ./tasks/filesystems/btrfs.nix
   ./tasks/filesystems/cifs.nix
@@ -1165,9 +1095,6 @@
   ./tasks/filesystems/xfs.nix
   ./tasks/filesystems/zfs.nix
   ./tasks/lvm.nix
-  ./tasks/network-interfaces.nix
-  ./tasks/network-interfaces-systemd.nix
-  ./tasks/network-interfaces-scripted.nix
   ./tasks/scsi-link-power-management.nix
   ./tasks/snapraid.nix
   ./tasks/swraid.nix
@@ -1178,23 +1105,18 @@
   ./virtualisation/container-config.nix
   ./virtualisation/containerd.nix
   ./virtualisation/containers.nix
-  ./virtualisation/nixos-containers.nix
   ./virtualisation/oci-containers.nix
   ./virtualisation/cri-o.nix
   ./virtualisation/docker.nix
   ./virtualisation/ecs-agent.nix
   ./virtualisation/libvirtd.nix
-  ./virtualisation/lxc.nix
-  ./virtualisation/lxcfs.nix
   ./virtualisation/lxd.nix
   ./virtualisation/amazon-options.nix
   ./virtualisation/hyperv-guest.nix
   ./virtualisation/kvmgt.nix
-  ./virtualisation/openvswitch.nix
   ./virtualisation/parallels-guest.nix
   ./virtualisation/podman.nix
   ./virtualisation/podman-network-socket-ghostunnel.nix
-  ./virtualisation/qemu-guest-agent.nix
   ./virtualisation/railcar.nix
   ./virtualisation/spice-usb-redirection.nix
   ./virtualisation/virtualbox-guest.nix

@@ -73,9 +73,9 @@
   ./tasks/network-interfaces.nix
   ./tasks/network-interfaces-systemd.nix
   ./tasks/network-interfaces-scripted.nix
+  ./virtualisation/nixos-containers.nix # for isContainer, used by stage-1.nix, grub.nix
   ./virtualisation/lxc.nix              # for lxc, used by pam.nix
   ./virtualisation/lxcfs.nix            # for lxcfs, used by pam.nix
-  ./virtualisation/nixos-containers.nix # for isContainer, used by stage-1.nix, grub.nix
   ./virtualisation/openvswitch.nix      # for vswitch, used by network-interfaces.nix
   ./virtualisation/qemu-guest-agent.nix
 ]
