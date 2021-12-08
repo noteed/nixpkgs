@@ -54,6 +54,7 @@
   ./services/security/fprintd.nix          # used by pam
   ./services/system/dbus.nix
   ./services/system/nscd.nix
+  ./services/ttys/getty.nix # Necessary to be able to log in, not to build.
   ./system/activation/activation-script.nix
   ./system/activation/top-level.nix
   ./system/boot/kernel.nix
@@ -70,6 +71,7 @@
   ./system/boot/tmp.nix
   ./system/etc/etc.nix
   ./tasks/filesystems.nix
+  ./tasks/filesystems/ext.nix # Necessary to mount the disk in stage-1.
   ./tasks/network-interfaces.nix
   ./tasks/network-interfaces-systemd.nix
   ./tasks/network-interfaces-scripted.nix
